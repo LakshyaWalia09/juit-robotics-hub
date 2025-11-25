@@ -27,7 +27,6 @@ const Navbar = () => {
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'equipment', label: 'Equipment' },
-    { id: 'gallery', label: 'Lab' },
     { id: 'faculty', label: 'Faculty' },
     { id: 'projects', label: 'Projects' },
   ];
@@ -47,8 +46,10 @@ const Navbar = () => {
             className="flex items-center space-x-3 cursor-pointer"
             onClick={() => scrollToSection('home')}
           >
-            {/* <!-- LOGO: Replace with juitlogo.png (300x80px recommended) --> */}
-            <div className="text-accent text-2xl font-bold">JUIT</div>
+            {/* REPLACE: Logo placeholder - replace with actual logo image */}
+            <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center">
+              <span className="text-primary font-bold text-lg">JUIT</span>
+            </div>
             <div className="hidden sm:block text-primary-foreground text-sm font-medium">
               Robotics Lab
             </div>
