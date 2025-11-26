@@ -9,12 +9,12 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 // REPLACE: All equipment images below
-import droneImg from '@/assets/drone.jpg';
-import roboticDogImg from '@/assets/robotic-dog.jpg';
+import droneImg from '@/assets/Drone1.jpeg';
+import roboticDogImg from '@/assets/RoboDog2.jpg';
 import roboticArmImg from '@/assets/robotic-arm.jpg';
-import roboticHandsImg from '@/assets/robotic-hands.jpg';
-import arduinoImg from '@/assets/arduino.jpg';
-import jetsonNanoImg from '@/assets/jetson-nano.jpg';
+import roboticHandsImg from '@/assets/RoboHandKit.jpeg';
+import arduinoImg from '@/assets/ArdinoMotor.png';
+import jetsonNanoImg from '@/assets/JetsonNano.png';
 
 interface Equipment {
   title: string;
