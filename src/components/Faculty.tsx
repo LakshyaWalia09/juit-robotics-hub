@@ -20,7 +20,7 @@ const Faculty = () => {
       // REPLACE: LinkedIn profile URL
       linkedin: 'https://www.linkedin.com/in/dr-aman-sharma-9186485b',
       // REPLACE: Faculty member 1 photo
-      image: 'public/AmanSir.jpeg',
+      image: '/AmanSir.jpeg',
     },
     {
       // REPLACE: Faculty member 2 details
@@ -30,7 +30,7 @@ const Faculty = () => {
       // REPLACE: LinkedIn profile URL
       linkedin: 'https://www.linkedin.com/in/dr-shruti-jain-92705b130',
       // REPLACE: Faculty member 2 photo
-      image: 'public/ShruitiMaam.jpeg',
+      image: '/ShruitiMaam.jpeg',
     },
     {
       // REPLACE: Faculty member 3 details
@@ -40,7 +40,7 @@ const Faculty = () => {
       // REPLACE: LinkedIn profile URL
       linkedin: 'https://www.juit.ac.in/faculty.php?id=374&dep=ece&page=0',
       // REPLACE: Faculty member 3 photo
-      image: 'public/VikasSir.jpeg',
+      image: '/VikasSir.jpeg',
     },
   ];
 
