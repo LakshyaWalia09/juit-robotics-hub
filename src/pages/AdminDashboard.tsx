@@ -34,10 +34,8 @@ const AdminDashboard = () => {
     if (!authLoading) {
       setHasCheckedAuth(true);
       if (!user) {
-        console.log('No user found, redirecting to login...');
         navigate('/admin');
       } else if (!isAdmin) {
-        console.log('User is not admin, access denied');
         toast.error('Access denied. Admin privileges required.');
       }
     }
@@ -45,7 +43,6 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     if (user && isAdmin && hasCheckedAuth) {
-      console.log('Fetching projects...');
       fetchProjects();
     }
   }, [user, isAdmin, hasCheckedAuth]);
@@ -53,18 +50,15 @@ const AdminDashboard = () => {
   const fetchProjects = async () => {
     setLoadingProjects(true);
     try {
-      console.log('Fetching projects from database...');
       const { data, error } = await supabase
         .from('projects')
         .select('*')
         .order('created_at', { ascending: false });
 
       if (error) {
-        console.error('Error fetching projects:', error);
         throw error;
       }
 
-      console.log(`Fetched ${data?.length || 0} projects`);
       setProjects(data || []);
       
       // Calculate stats
@@ -76,13 +70,11 @@ const AdminDashboard = () => {
 
       setStats({ total, pending, approved, rejected, underReview });
     } catch (error: any) {
-      console.error('Error fetching projects:', error);
-      
       // Check if it's a table not found error
       if (error.code === '42P01' || error.message?.includes('does not exist')) {
         toast.error('Projects table not found. Please run database migrations.');
       } else {
-        toast.error('Failed to fetch projects. Check console for details.');
+        toast.error('Failed to fetch projects.');
       }
     } finally {
       setLoadingProjects(false);
@@ -95,7 +87,6 @@ const AdminDashboard = () => {
       toast.success('Signed out successfully');
       navigate('/admin');
     } catch (error) {
-      console.error('Sign out error:', error);
       toast.error('Error signing out');
     }
   };
@@ -127,7 +118,6 @@ const AdminDashboard = () => {
       fetchProjects();
       setSelectedProject(null);
     } catch (error) {
-      console.error('Error updating project:', error);
       toast.error('Failed to update project');
     }
   };
