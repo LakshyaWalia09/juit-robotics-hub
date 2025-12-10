@@ -77,8 +77,6 @@ const ProjectForm = () => {
         return;
       }
 
-      console.log('Selected resources:', resourcesArray);
-
       // Prepare project data for Supabase
       const projectData = {
         student_name: data.name,
@@ -95,12 +93,10 @@ const ProjectForm = () => {
         description: data.description,
         expected_outcomes: data.expectedOutcomes || null,
         duration: data.duration,
-        required_resources: resourcesArray, // Now properly formatted as array
+        required_resources: resourcesArray,
         other_resources: data.otherResources || null,
         status: 'pending' as const,
       };
-
-      console.log('Submitting project data:', projectData);
 
       // Insert project into Supabase
       const { data: project, error } = await supabase
@@ -110,12 +106,10 @@ const ProjectForm = () => {
         .single();
 
       if (error) {
-        console.error('Error submitting project:', error);
         toast.error(`Failed to submit project: ${error.message}`);
         return;
       }
 
-      console.log('Project submitted successfully:', project);
       toast.success('Project idea submitted successfully! You\'ll receive a confirmation email shortly.');
       
       // Reset form and state
@@ -123,7 +117,6 @@ const ProjectForm = () => {
       setSelectedResources([]);
       setShowOtherResources(false);
     } catch (error) {
-      console.error('Unexpected error:', error);
       toast.error('An unexpected error occurred. Please try again.');
     } finally {
       setIsSubmitting(false);
