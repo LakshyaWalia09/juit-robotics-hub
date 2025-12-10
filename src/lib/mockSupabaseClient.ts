@@ -54,8 +54,6 @@ export const mockSupabase = {
         single: async () => {
           if (table === 'projects') {
             const project = mockDB.addProject(data[0] || data);
-            // Simulate email notification
-            console.log('📧 Mock Email: Project submitted -', project.project_title);
             return { data: project, error: null };
           }
           return { data: null, error: null };
@@ -68,10 +66,6 @@ export const mockSupabase = {
         then: async (callback: any) => {
           if (table === 'projects') {
             const updated = mockDB.updateProject(value, updates);
-            // Simulate status change email
-            if (updates.status) {
-              console.log('📧 Mock Email: Status changed to', updates.status);
-            }
             return callback({ data: updated, error: null });
           }
           return callback({ data: null, error: null });
